@@ -2,6 +2,8 @@
 
 	var dayNamesInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   	var shortDayNamessInWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  	var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  	var shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 	Date.prototype.format = function(format) {
 		var pattern = '',
@@ -90,6 +92,26 @@
 	            		returnValue += 7;
 	            	} else {
 	            		returnValue += this.getDay();
+	            	}
+	            	pattern = '';
+	            	count = 0;
+	            	break;
+	            //month
+	            case 'M':
+            		count++;
+	            	if(nextPattern === 'M') {
+	            		pattern = '';
+	            		break;
+	            	}
+	            	if (count < 3) {
+	            		if (this.getMonth() < 9 && count > 1) {
+	            			returnValue += '0';
+	            		} 
+	            		returnValue += (this.getMonth() + 1);
+	            	} else if (count == 3) {
+	            		returnValue += shortMonths[this.getMonth()];
+	            	} else {
+	            		returnValue += months[this.getMonth()];
 	            	}
 	            	pattern = '';
 	            	count = 0;
