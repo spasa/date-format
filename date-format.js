@@ -1,5 +1,8 @@
 (function() {
 
+	var dayNamesInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  	var shortDayNamessInWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
 	Date.prototype.format = function(format) {
 		var pattern = '',
 			returnValue = '',
@@ -28,6 +31,7 @@
 	            	}
 	            	returnValue += this.getDate();
 	            	pattern = '';
+	            	count = 0;
 	            	break;
 	            case 'D':
 		            var start = new Date(this.getFullYear(), 0, 0);
@@ -56,6 +60,21 @@
 
 	            	returnValue += dayOfWeekInMonth;
 	            	pattern = '';
+	            	count = 0;
+	            	break;
+	            case 'E':
+            		count++;
+	            	if(nextPattern === 'E') {
+	            		pattern = '';
+	            		break;
+	            	}
+	            	if (count > 3) {
+	            		returnValue += dayNamesInWeek[this.getDay()];
+	            	} else {
+	            		returnValue += shortDayNamessInWeek[this.getDay()];
+	            	}
+	            	pattern = '';
+	            	count = 0;
 	            	break;
             	default:
 	            	returnValue += currentPattern;
