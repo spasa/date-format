@@ -16,6 +16,42 @@
 
             pattern += currentPattern;
             switch (pattern) {
+            	//year
+            	case 'y':
+            		count++;
+	            	if(nextPattern === 'y') {
+	            		pattern = '';
+	            		break;
+	            	}
+	            	if (count == 2) {
+	            		returnValue += ('' + this.getFullYear()).substr(2);
+	            	} else {
+	            		returnValue += this.getFullYear();
+	            	}
+	            	pattern = '';
+	            	count = 0;
+	            	break;
+
+            	//month
+	            case 'M':
+            		count++;
+	            	if(nextPattern === 'M') {
+	            		pattern = '';
+	            		break;
+	            	}
+	            	if (count < 3) {
+	            		if (this.getMonth() < 9 && count > 1) {
+	            			returnValue += '0';
+	            		} 
+	            		returnValue += (this.getMonth() + 1);
+	            	} else if (count == 3) {
+	            		returnValue += shortMonths[this.getMonth()];
+	            	} else {
+	            		returnValue += months[this.getMonth()];
+	            	}
+	            	pattern = '';
+	            	count = 0;
+	            	break;
             	//day
             	case 'd':
             		count++;
@@ -92,26 +128,6 @@
 	            		returnValue += 7;
 	            	} else {
 	            		returnValue += this.getDay();
-	            	}
-	            	pattern = '';
-	            	count = 0;
-	            	break;
-	            //month
-	            case 'M':
-            		count++;
-	            	if(nextPattern === 'M') {
-	            		pattern = '';
-	            		break;
-	            	}
-	            	if (count < 3) {
-	            		if (this.getMonth() < 9 && count > 1) {
-	            			returnValue += '0';
-	            		} 
-	            		returnValue += (this.getMonth() + 1);
-	            	} else if (count == 3) {
-	            		returnValue += shortMonths[this.getMonth()];
-	            	} else {
-	            		returnValue += months[this.getMonth()];
 	            	}
 	            	pattern = '';
 	            	count = 0;
