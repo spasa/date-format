@@ -14,6 +14,7 @@
 
             pattern += currentPattern;
             switch (pattern) {
+            	//day
             	case 'd':
             		count++;
 	            	if(nextPattern === 'd') {
@@ -72,6 +73,23 @@
 	            		returnValue += dayNamesInWeek[this.getDay()];
 	            	} else {
 	            		returnValue += shortDayNamessInWeek[this.getDay()];
+	            	}
+	            	pattern = '';
+	            	count = 0;
+	            	break;
+	            case 'u':
+            		count++;
+	            	if(nextPattern === 'u') {
+	            		if (count >= 1) {
+	            			returnValue += '0';
+	            		}
+	            		pattern = '';
+	            		break;
+	            	}
+	            	if (this.getDay() == 0) {
+	            		returnValue += 7;
+	            	} else {
+	            		returnValue += this.getDay();
 	            	}
 	            	pattern = '';
 	            	count = 0;
