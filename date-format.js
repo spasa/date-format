@@ -146,6 +146,25 @@
 	            	pattern = '';
 	            	count = 0;
 	            	break;
+	            case 'H':
+	            	count++;
+	            	if(nextPattern === 'H') {
+	            		if (this.getHours() < 10) {
+	            			if (count >= 1) {
+	            				returnValue += '0';
+	            			}
+	            		} else {
+	            			if (count > 1) {
+	            				returnValue += '0';
+	            			}
+	            		}
+	            		pattern = '';
+	            		break;
+	            	}
+	            	returnValue += this.getHours();
+	            	pattern = '';
+	            	count = 0;
+	            	break;
             	default:
 	            	returnValue += currentPattern;
 	            	pattern = '';
