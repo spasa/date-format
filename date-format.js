@@ -188,6 +188,25 @@
 	            	pattern = '';
 	            	count = 0;
 	            	break;
+	            case 'K':
+	            	count++;
+	            	if(nextPattern === 'K') {
+	            		if (this.getHours() % 12 < 10) {
+	            			if (count >= 1) {
+	            				returnValue += '0';
+	            			}
+	            		} else {
+	            			if (count > 1) {
+	            				returnValue += '0';
+	            			}
+	            		}
+	            		pattern = '';
+	            		break;
+	            	}
+	            	returnValue += this.getHours() % 12;
+	            	pattern = '';
+	            	count = 0;
+	            	break;
             	default:
 	            	returnValue += currentPattern;
 	            	pattern = '';
