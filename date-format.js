@@ -132,6 +132,20 @@
 	            	pattern = '';
 	            	count = 0;
 	            	break;
+	            //time
+	            case 'a':
+	            	if(nextPattern === 'a') {
+	            		pattern = '';
+	            		break;
+	            	}
+	            	if (this.getHours() < 12) {
+	            		returnValue += 'AM';
+	            	} else {
+	            		returnValue += 'PM';
+	            	}
+	            	pattern = '';
+	            	count = 0;
+	            	break;
             	default:
 	            	returnValue += currentPattern;
 	            	pattern = '';
