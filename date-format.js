@@ -165,6 +165,29 @@
 	            	pattern = '';
 	            	count = 0;
 	            	break;
+	            case 'k':
+	            	count++;
+	            	if(nextPattern === 'k') {
+	            		if (this.getHours() < 10) {
+	            			if (!(count == 1 && this.getHours() == 0)) {
+	            				returnValue += '0';
+	            			}
+	            		} else {
+	            			if (count > 1) {
+	            				returnValue += '0';
+	            			}
+	            		}
+	            		pattern = '';
+	            		break;
+	            	}
+	            	if (this.getHours() == 0) {
+	            		returnValue += 24;
+	            	} else {
+	            		returnValue += this.getHours();
+	            	}
+	            	pattern = '';
+	            	count = 0;
+	            	break;
             	default:
 	            	returnValue += currentPattern;
 	            	pattern = '';
