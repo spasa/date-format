@@ -245,6 +245,25 @@
 	            	pattern = '';
 	            	count = 0;
 	            	break;
+	            case 's':
+	            	count++;
+	            	if(nextPattern === 's') {
+	            		if (this.getSeconds() < 10) {
+	            			if (count >= 1) {
+	            				returnValue += '0';
+	            			}
+	            		} else {
+	            			if (count > 1) {
+	            				returnValue += '0';
+	            			}
+	            		}
+	            		pattern = '';
+	            		break;
+	            	}
+	            	returnValue += this.getSeconds();
+	            	pattern = '';
+	            	count = 0;
+	            	break;
             	default:
 	            	returnValue += currentPattern;
 	            	pattern = '';
