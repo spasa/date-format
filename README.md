@@ -53,11 +53,6 @@ The following pattern letters are defined
       <td>AM</td>
     </tr>
     <tr>
-      <td>a</td>
-      <td>Am/pm marker</td>
-      <td>AM</td>
-    </tr>
-    <tr>
       <td>H</td>
       <td>Hour in day (0-23)</td>
       <td>0</td>
