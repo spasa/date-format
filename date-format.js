@@ -226,6 +226,25 @@
 	            	pattern = '';
 	            	count = 0;
 	            	break;
+	            case 'm':
+	            	count++;
+	            	if(nextPattern === 'm') {
+	            		if (this.getMinutes() < 10) {
+	            			if (count >= 1) {
+	            				returnValue += '0';
+	            			}
+	            		} else {
+	            			if (count > 1) {
+	            				returnValue += '0';
+	            			}
+	            		}
+	            		pattern = '';
+	            		break;
+	            	}
+	            	returnValue += this.getMinutes();
+	            	pattern = '';
+	            	count = 0;
+	            	break;
             	default:
 	            	returnValue += currentPattern;
 	            	pattern = '';
