@@ -264,6 +264,29 @@
 	            	pattern = '';
 	            	count = 0;
 	            	break;
+	            case 'S':
+	            	count++;
+	            	if(nextPattern === 'S') {
+	            		if (this.getMilliseconds() < 10) {
+	            			if (count >= 1) {
+	            				returnValue += '0';
+	            			}
+	            		} else if (this.getMilliseconds() < 100) {
+	            			if (count >= 2) {
+	            				returnValue += '0';
+	            			}
+	            		} else {
+	            			if (count > 2) {
+	            				returnValue += '0';
+	            			}
+	            		}
+	            		pattern = '';
+	            		break;
+	            	}
+	            	returnValue += this.getMilliseconds();
+	            	pattern = '';
+	            	count = 0;
+	            	break;
             	default:
 	            	returnValue += currentPattern;
 	            	pattern = '';
