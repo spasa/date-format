@@ -287,6 +287,24 @@
 	            	pattern = '';
 	            	count = 0;
 	            	break;
+	           	case 'Z':
+	            	if(nextPattern === 'Z') {
+	            		pattern = '';
+	            		break;
+	            	}
+	            	console.log(this.getTimezoneOffset());
+	            	returnValue += (-this.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(this.getTimezoneOffset() / 60) < 10 ? '0' : '') + Math.floor(Math.abs(this.getTimezoneOffset() / 60));
+					if (Math.abs(this.getTimezoneOffset() % 60) == 0){
+						returnValue += '00';
+					} else {
+						if (Math.abs(this.getTimezoneOffset() % 60) < 10) {
+							returnValue += '0';
+						}
+						returnValue += (Math.abs(this.getTimezoneOffset() % 60));
+					}
+	            	pattern = '';
+	            	count = 0;
+	            	break;
             	default:
 	            	returnValue += currentPattern;
 	            	pattern = '';
