@@ -292,7 +292,6 @@
 	            		pattern = '';
 	            		break;
 	            	}
-	            	console.log(this.getTimezoneOffset());
 	            	returnValue += (-this.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(this.getTimezoneOffset() / 60) < 10 ? '0' : '') + Math.floor(Math.abs(this.getTimezoneOffset() / 60));
 					if (Math.abs(this.getTimezoneOffset() % 60) == 0){
 						returnValue += '00';
@@ -302,6 +301,30 @@
 						}
 						returnValue += (Math.abs(this.getTimezoneOffset() % 60));
 					}
+	            	pattern = '';
+	            	count = 0;
+	            	break;
+	            case 'X':
+	            	count++;
+	            	if(nextPattern === 'X') {
+	            		pattern = '';
+	            		break;
+	            	}
+	            	if (count == 1) {
+	            		returnValue += (-this.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(this.getTimezoneOffset() / 60) < 10 ? '0' : '') + Math.floor(Math.abs(this.getTimezoneOffset() / 60));
+	            	} else if (count == 2) {
+	            		returnValue += this.format('Z');
+	            	} else {
+	            		returnValue += (-this.getTimezoneOffset() < 0 ? '-' : '+') + (Math.abs(this.getTimezoneOffset() / 60) < 10 ? '0' : '') + Math.floor(Math.abs(this.getTimezoneOffset() / 60)) + ':';
+						if (Math.abs(this.getTimezoneOffset() % 60) == 0){
+							returnValue += '00';
+						} else {
+							if (Math.abs(this.getTimezoneOffset() % 60) < 10) {
+								returnValue += '0';
+							}
+							returnValue += (Math.abs(this.getTimezoneOffset() % 60));
+						}
+	            	}
 	            	pattern = '';
 	            	count = 0;
 	            	break;
