@@ -87,5 +87,15 @@ The following pattern letters are defined:
       <td>Millisecond</td>
       <td>978</td>
     </tr>
+    <tr>
+      <td>Z</td>
+      <td>RFC 822 time zone</td>
+      <td>+0200</td>
+    </tr>
+    <tr>
+      <td>X</td>
+      <td>ISO 8601 time zone</td>
+      <td>+02; +0200; +02:00</td>
+    </tr>
   </tbody>
 </table>
