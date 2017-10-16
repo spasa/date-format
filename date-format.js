@@ -1,9 +1,4 @@
 (function() {
-
-	/*var dayNamesInWeek = locale.dayNamesInWeek;
-	var shortDayNamessInWeek = locale.shortDayNamessInWeek;
-	var months = locale.months;
-	var shortMonths = locale.shortMonths;*/
 	var dayNamesInWeek;
 	var shortDayNamessInWeek;
 	var months;
@@ -32,7 +27,7 @@
 		if (!dayNamesInWeek || !shortDayNamessInWeek || !months || !shortMonths) {
 			this.setLocale(defaultLocale);
 		}
-		
+
 		for(var i = 0; i < format.length; i++) {
 			var currentPattern = format.charAt(i);
 			var nextPattern = format.charAt(i + 1);
