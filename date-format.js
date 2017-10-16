@@ -1,9 +1,15 @@
 (function() {
+	var dayNamesInWeek;
+  	var shortDayNamessInWeek;
+  	var months;
+  	var shortMonths;
 
-	var dayNamesInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  	var shortDayNamessInWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  	var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  	var shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  	Date.prototype.setLocale = function(lang) {
+  		dayNamesInWeek = window[lang].dayNamesInWeek;
+    	shortDayNamessInWeek = window[lang].shortDayNamessInWeek;
+    	months = window[lang].months;
+    	shortMonths = window[lang].shortMonths;
+  	}
 
 	Date.prototype.format = function(format) {
 		var pattern = '',
